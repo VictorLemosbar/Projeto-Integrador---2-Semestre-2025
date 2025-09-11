@@ -1,5 +1,7 @@
 import { useState } from 'react'
 
+import '../src/Styles/style.css'
+
 import P1 from "./Components/P1"
 import P2 from "./Components/P2"
 import Home from "./Components/Home"
@@ -15,11 +17,11 @@ function MyApp() {
 
     <div>
 
-      {active == "home" && <Home />}
+      {active === "home" && <Home />}
 
 
-      <button onClick={() => setActive('comp1')}>Compressor 1</button>
-      <button onClick={() => setActive('comp2')}>Compressor 2</button>
+      <button id = "compressor1" onClick={() => setActive('comp1')}></button>
+      <button id = "compressor2"onClick={() => setActive('comp2')}></button>
 
 
       {active === 'comp1' && <P1 key={dados1.id} dado={dados1} />}
