@@ -1,0 +1,1 @@
+//cada compressor terá sua própria pasta para conexão, parser de dados e simulação, evitando bagunça quando crescer.
