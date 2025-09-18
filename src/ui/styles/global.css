@@ -1,11 +1,13 @@
 :root {
-  --bg: #f0f0f0;        
-  --card: #ffffff;      
-  --muted: #666666;     
-  --text: #333333;      
-  --primary: #3b82f6;   
-  --danger: #e63946;    
-  --ring: #cccccc;      
+  --bg: #121212;        /* fundo principal (quase preto) */
+  --card: #1e1e1e;      /* cartões em cinza bem escuro */
+  --muted: #9a9a9a;     /* textos secundários em cinza médio */
+  --text: #f0f0f0;      /* texto principal claro */
+
+  --primary: #4d88ff;   /* azul neutro para destaque */
+  --accent: #8b5e3c;    /* marrom (novo destaque) */
+  --danger: #d9534f;    /* vermelho discreto para erro/alerta */
+  --ring: #333333;      /* bordas em cinza médio */
 }
 
 * { box-sizing: border-box; }
@@ -78,7 +80,7 @@ main { display: block; }
   padding: 10px;
 }
 .metric-label { color: var(--muted); font-size: 12px; }
-.metric-value { font-size: 18px; font-weight: 600; }
+.metric-value { font-size: 18px; font-weight: 600; color: var(--accent); } /* valor destacado em marrom */
 .metric-unit { color: var(--muted); font-size: 12px; }
 
 .gauges {
@@ -95,7 +97,7 @@ main { display: block; }
 }
 .gauge-bar {
   height: 10px;
-  background: #e0e0e0;
+  background: #2a2a2a;
   border-radius: 6px;
   overflow: hidden;
 }
@@ -127,6 +129,14 @@ main { display: block; }
   background: var(--danger);
   color: white;
 }
+.btn-accent {
+  background: var(--accent);
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
 
 .dashboard { display: grid; gap: 16px; }
 
@@ -152,7 +162,7 @@ main { display: block; }
   padding: 4px 8px;
   border-radius: 999px;
   font-size: 12px;
-  background: var(--primary);
+  background: var(--accent);
 }
 
 .empty { opacity: .7; padding: 24px; }
