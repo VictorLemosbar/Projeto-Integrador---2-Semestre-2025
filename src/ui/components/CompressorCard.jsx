@@ -22,9 +22,9 @@ export default function CompressorCard({ data }) {
     <section className="ir-panel card">
       <div className="ir-topbar">
         <div className="ir-top-left">
-          <span className="ir-home" aria-hidden>🏠</span>
-          <span className="ir-tab" aria-hidden>✔️</span>
-          <span className="ir-tab" aria-hidden>⚠️</span>
+          <span className="ir-home" aria-hidden></span>
+          <span className="ir-tab" aria-hidden></span>
+          <span className="ir-tab" aria-hidden></span>
         </div>
         <div className="ir-title">Início</div>
         <div className="ir-top-right">
@@ -80,9 +80,9 @@ export default function CompressorCard({ data }) {
       <div className="ir-statusbar">
         <span>Func em Carga</span>
         <div className="ir-status-icons">
-          <span title="Usuário">👤</span>
-          <span title="Manutenção">🛠️</span>
-          <span title="Ajustes">⚙️</span>
+          <span title="Usuário"></span>
+          <span title="Manutenção"></span>
+          <span title="Ajustes"></span>
         </div>
       </div>
 
