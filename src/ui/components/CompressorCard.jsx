@@ -26,11 +26,11 @@ export default function CompressorCard({ data }) {
           <span className="ir-tab" aria-hidden></span>
           <span className="ir-tab" aria-hidden></span>
         </div>
-        <div className="ir-title">Início</div>
+        <div className="ir-title"></div>
         <div className="ir-top-right">
-          <span className="ir-page">1</span>
+          <span className="ir-page"></span>
           <span className="ir-page-sep">|</span>
-          <span className="ir-page">2</span>
+          <span className="ir-page"></span>
         </div>
       </div>
 

@@ -1,1 +1,0 @@
-// Serviços de integração (Modbus, Banco de dados, etc.)
