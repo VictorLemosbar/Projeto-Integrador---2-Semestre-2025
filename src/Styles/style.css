@@ -6,8 +6,8 @@ body {
 
 #app {
     display: grid;
-    grid-template-columns: 120px 1200px 100px;
-    grid-template-rows: 100px 600px 100px;
+    grid-template-columns: 150px 950px 150px;
+    grid-template-rows: 100px 420px 100px;
     row-gap: 15px;
 
 }
@@ -23,28 +23,32 @@ body {
    border-radius: 15px;
 }
 
-#compressores {
-
+.compressor {
     border-radius: 10px;
+    margin-top: 5px;
     width: 100px;
     height: 100px;
+    margin-left: 20px;
+    margin-top: 13px;
     background-image: url('../Images/noun-air-compressor-6323361.png');
 
 }
 
-#bottoes {
+.bottoes {
 
+    background-color: #303030;
     grid-column: 1/2;
     grid-row: 2/2;
-    margin-top: 15px;
+    margin-top: 30px;
+    border-radius: 15px;
     border-style: none;
-    width: 100px;
-    height: 30px;
+    width: 140px;
+    height: 350px;
 }
 
 #userView {
-    width: 900px;
-    height: 500px;
+    width: 200px;
+    height: 400px;
     background-color: #303030;
     grid-column: 2/3;
     grid-row: 2/3;
@@ -53,8 +57,30 @@ body {
     border-radius: 15px;
 }
 
-#clickView {
-    color: white;
-    grid-column: 2/3;
-    grid-row: 2/3;
+
+
+
+/*ESTILIZAÇÃO DOS COMPONENTES DOS COMPRESSORES*/
+
+#comp {
+    width: 950px;
+    height: 400px;
+    display: grid;
+    grid-template-columns: 237px 237px 237px 237px;
+    grid-template-rows: 70px 70x 70px 70px 70px;
 }
+
+ #gaugeDischargePressure {
+    background-color: rgb(255, 0, 0);
+    width: 237px;
+    height: 70x;
+    grid-column: 1/4;
+    grid-row: 1/5;
+ }
+
+
+ #gaugeSumpress {
+    background-color: rgb(255, 0, 0);
+    grid-column: 2/4;
+    grid-row: 1/5;
+ }

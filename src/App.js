@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import "../src/Styles/style.css";
+import "../src/Styles/style.css"
 import Comp1 from "./Data/Dados_C1";
 import Comp2 from "../src/Data/Dados_C2";
 import Comp3 from "../src/Data/Dados_C3";
@@ -68,14 +68,14 @@ function MyApp() {
       <div id="titulo">
       <h1>Sistema De Gerenciamento de compressores</h1>
       </div>
-      <div id="bottoes">
-        <button id="compressor" onClick={alternarVisibilidadeComp1}>
-          1
+      <div className="bottoes">
+        <button className="compressor" onClick={alternarVisibilidadeComp1}>
+          
         </button>
-        <button id="compressor" onClick={alterarVisibilidadeComp2}>
+        <button className="compressor" onClick={alterarVisibilidadeComp2}>
           2
         </button>
-        <button id="compressor" onClick={alterarVisibilidadeComp3}>
+        <button className="compressor" onClick={alterarVisibilidadeComp3}>
           3
         </button>
         </div>
