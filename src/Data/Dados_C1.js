@@ -28,7 +28,7 @@ const MetricGauge = ({ dataKey, data, limits }) => {
   const percentValue = currentValue / limits.max; 
 
   return (
-    <div style={{ textAlign: 'center', width: '275px', }}>
+    <div style={{ textAlign: 'center', width: '250px', }}>
 
       <h3>{limits.title}</h3>
 
@@ -81,8 +81,14 @@ function Comp1() {
 
   return (
     <div id="comp">
-      <h1>Dashboard Compressor 1</h1>
-      
+      <div id="tituloComp">
+      <h1>Dashboard</h1>
+      </div>
+
+      <div id="tituloCompt2">
+      <h1>Compressor 1</h1>
+      </div>
+
       <div id="gaugeDischargePressure">
         
         <MetricGauge
@@ -101,6 +107,8 @@ function Comp1() {
           limits={LIMITES.SUMP}
         />
       </div>
+
+      <div id=""></div>
         
     </div>
   );

@@ -69,14 +69,24 @@ function MyApp() {
       <h1>Sistema De Gerenciamento de compressores</h1>
       </div>
       <div className="bottoes">
-        <button className="compressor" onClick={alternarVisibilidadeComp1}>
-          
+
+        <div id="tituloCompressor">
+        <p>Compressor 1</p>
+        </div>
+        <button className="compressor" onClick={alternarVisibilidadeComp1}> 
         </button>
+        
+         <div id="tituloCompressor">
+        <p>Compressor 2</p>
+        </div>
         <button className="compressor" onClick={alterarVisibilidadeComp2}>
-          2
         </button>
+
+        <div id="tituloCompressor">
+        <p>Compressor 1</p>
+        </div>
         <button className="compressor" onClick={alterarVisibilidadeComp3}>
-          3
+          
         </button>
         </div>
         <div id="userView">

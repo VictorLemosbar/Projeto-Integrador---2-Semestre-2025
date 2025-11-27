@@ -26,12 +26,23 @@ body {
 .compressor {
     border-radius: 10px;
     margin-top: 5px;
-    width: 100px;
-    height: 100px;
-    margin-left: 20px;
+    width: 80px;
+    height: 80px;
+    margin-left: 33px;
     margin-top: 13px;
-    background-image: url('../Images/noun-air-compressor-6323361.png');
+    background-image: url('../Images/erasebg-transformed\ \(4\).png');
+    background-size: contain;
 
+}
+
+#tituloCompressor {
+    border-radius: 5px;
+    font-size: 13px;
+    color: white;
+    width: 50x;
+    height: 4px;
+    margin-left: 35px;
+    border-color: white;    
 }
 
 .bottoes {
@@ -70,17 +81,38 @@ body {
     grid-template-rows: 70px 70x 70px 70px 70px;
 }
 
+
+#tituloComp {
+
+    margin-left: 30px;
+    grid-column: 2/4;
+    grid-row: 1/5;
+
+}
+
+#tituloCompt2 {
+
+    grid-column: 3/4;
+    grid-row: 1/5;
+    margin-right: 30px;
+    
+}
+
  #gaugeDischargePressure {
     background-color: rgb(255, 0, 0);
     width: 237px;
     height: 70x;
     grid-column: 1/4;
-    grid-row: 1/5;
+    grid-row: 5/5;
  }
+
 
 
  #gaugeSumpress {
-    background-color: rgb(255, 0, 0);
+    width: 237px;
+    height: 70x;
+    grid-row: 5/5;
     grid-column: 2/4;
-    grid-row: 1/5;
+
  }
+
