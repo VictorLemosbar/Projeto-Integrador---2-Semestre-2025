@@ -108,7 +108,11 @@ function Comp1() {
         />
       </div>
 
-      <div id=""></div>
+      <div id="">
+
+          <p>Sum Press: {compressorData.sumpPress}</p>
+
+      </div>
         
     </div>
   );
