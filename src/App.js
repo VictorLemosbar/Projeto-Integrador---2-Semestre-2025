@@ -22,11 +22,14 @@ function MyApp() {
   //UseState que verifica o botão clicado
   const [activeComp, setActiveComp] = useState(0);
 
+
+
   //Constante que altera o estado do compOneVisible
   const alternarVisibilidadeComp1 = () => {
     setCompOneVisible(!compOneVisible);
     setCompTwoVisible(false);
     setCompThreeVisible(false);
+   
 
   };
 
@@ -35,16 +38,21 @@ function MyApp() {
     setCompTwoVisible(!compTwoVisible);
     setCompOneVisible(false);
     setCompThreeVisible(false);
+    
   };
+  
 
   //Constante que altera o estado do compTwoVisible
   const alterarVisibilidadeComp3 = () => {
     setCompThreeVisible(!compThreeVisible);
     setCompOneVisible(false);
     setCompTwoVisible(false);
+ 
 
   };
 
+
+  
 
   //constante que guarda o componente do compressor1
   const mostrarComp1 = () => {
@@ -86,7 +94,7 @@ function MyApp() {
 
         <button
 
-          className={`compressor2 ${activeComp === 1 ? "compressor-inativo" : ""}`}
+          className={`compresso1 ${activeComp === 1 ? "compressor-inativo" : ""}`}
           onClick={() => {
             if (activeComp != 1) {
               setActiveComp(1);
@@ -117,7 +125,7 @@ function MyApp() {
           <p>Compressor 3</p>
         </div>
         <button
-          className={`compressor2 ${activeComp === 3 ? "compressor-inativo" : ""}`}
+          className={`compressor3 ${activeComp === 3 ? "compressor-inativo" : ""}`}
           onClick={() => {
             if (activeComp != 3) {
               setActiveComp(3);
@@ -137,17 +145,34 @@ function MyApp() {
       </div>
 
       <div id="userView">
-        {compOneVisible === false ? 
-        <div id="mensagem">Selecione um compressor</div>:
-        <div id="clickView">
-          {mostrarComp1()}
-          {mostrarComp2()}
-          {mostrarComp3()}
-        </div>}
+
+  {(!compOneVisible && !compTwoVisible && !compThreeVisible) ? (
+
+      <div id="mensagem">Selecione um compressor</div>
+
+  ) : compOneVisible ? (
+
+      mostrarComp1()
+
+  ) : compTwoVisible ? (
+
+      mostrarComp2()
+
+  ) : compThreeVisible ? (
+
+      mostrarComp3()
+
+  ) : null}
+
+</div>
+
+          
+
+        
       </div>
 
 
-    </div>
+    
   );
 }
 
