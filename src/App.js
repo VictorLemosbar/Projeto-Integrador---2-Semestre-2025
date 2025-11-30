@@ -130,40 +130,20 @@ function MyApp() {
       </div>
 
       <div id="menuDireito">
-        <div id="compressorAtivo">
-          <h1>p1</h1>
-        </div>
-        <div>
-          {compOneVisible && (
-            <div id="flagComp1" className="flagComp1">
-              <div id="titulStatus">Compressor 1</div>
-              <img src="src/Images/erasebg-transformed (4).png" />
-            </div>
-          )}
-
-          {compTwoVisible && (
-            <div id="flagComp2" className="flagComp2">
-              <div id="titulStatus">Compressor 2</div>
-              <div id="imagemStatus"></div>
-            </div>
-          )}
-
-          {compThreeVisible && (
-            <div id="flagComp3" className="flagComp3">
-              <div id="titulStatus">Compressor 3</div>
-              <img src="src/Images/erasebg-transformed (4).png" />
-            </div>
-          )}
-        </div>
-
+        <div id="botoesEstado">
+          <div id="ligar"></div>
+          <div id="desligar"></div>
+          </div>
       </div>
 
       <div id="userView">
+        {compOneVisible === false ? 
+        <div id="mensagem">Selecione um compressor</div>:
         <div id="clickView">
           {mostrarComp1()}
           {mostrarComp2()}
           {mostrarComp3()}
-        </div>
+        </div>}
       </div>
 
 

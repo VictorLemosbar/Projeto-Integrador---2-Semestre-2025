@@ -54,7 +54,50 @@ body {
     gap: 15px;
     grid-column: 3;
     grid-row: 2;
+
 }
+
+#botoesEstado {
+    margin-top: 50%;
+}
+
+#desligar {
+    grid-row: 2;
+    grid-column: 2;
+    animation: fadeInAnim 0.4s ease forwards;
+    background-image: url('../Images/noun-power-4104705.png');
+     width: 70px;
+    height: 70px;
+     background-color: aqua;
+  background-size: contain;
+    background-repeat: no-repeat;
+    border-radius: 15px;
+    background-color: transparent;
+    border-color: transparent;
+    transition: 0.3s ease;
+    background-color: rgb(255, 0, 0);
+
+}
+
+#ligar {
+    grid-row: 2;
+    grid-column: 2;
+    animation: fadeInAnim 0.4s ease forwards;
+    width: 70px;
+    height: 70px;
+    background-color: aqua;
+    background-image: url('../Images/noun-power-4104705.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    border-radius: 15px;
+    background-color: transparent;
+    border-color: transparent;
+    transition: 0.3s ease;
+    background-color: rgb(0, 255, 106);
+
+}
+
+
 
 #userView {
     background-color: #303030;
@@ -64,6 +107,24 @@ body {
     min-height: 500px;
     max-height: 600px;
     overflow-y: auto;
+}
+
+#mensagem {
+
+    max-width: 250px;
+    align-items: center;
+    padding-left: 2%;
+    background-color: white;
+    margin-left: 38%;
+    margin-top: 18%;
+    color: rgb(0, 0, 0);
+    font-size: larger;
+    border-radius: 15px;
+    border-color: black;
+    border-style:solid;
+    animation: fadeInAnim 0.4s ease forwards;
+
+
 }
 
 #mensagemErro {
