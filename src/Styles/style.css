@@ -1,118 +1,217 @@
+/* ============================
+   CONFIGURAÇÃO GERAL DA PÁGINA
+   ============================ */
 body {
-    margin: 0px;
-    background-color: rgb(0, 0, 0);
+    margin: 0;
+    background-color: black;
+    font-family: Arial, sans-serif;
 }
 
-
+/* GRID PRINCIPAL — versão híbrida adaptável */
 #app {
     display: grid;
-    grid-template-columns: 150px 950px 150px;
-    grid-template-rows: 100px 420px 100px;
-    row-gap: 15px;
-
+    grid-template-columns: auto 1fr auto; 
+    grid-template-rows: auto 2fr;         
+    gap: 20px;
+    padding: 20px;
 }
 
+
+/* ============================
+   TÍTULO SUPERIOR
+   ============================ */
 #titulo {
+    grid-column: 2;
+    background-color: #303030;
+    color: white;
+    border-radius: 15px;
+    max-height: fit-content;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 16px;
+    font-weight: bold;
+}
+
+
+/* ============================
+   MENU LATERAL
+   ============================ */
+.menuEsquerdo {
+    background-color: #303030;
+    border-radius: 15px;
+    padding: 15px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;  
     text-align: center;
-    background-color: #303030;
-    color: white;
-   grid-column: 2/3;
-   grid-row: 1/3;
-   margin-top: 15px;
-   height: 85px;
-   border-radius: 15px;
+
+    gap: 15px;
+
+    grid-column: 1; 
+    grid-row: 2;    
+    margin-top: 20px;
 }
 
-.compressor {
-    border-radius: 10px;
-    margin-top: 5px;
-    width: 80px;
-    height: 80px;
-    margin-left: 33px;
-    margin-top: 13px;
-    background-image: url('../Images/erasebg-transformed\ \(4\).png');
-    background-size: contain;
-
-}
-
+/* Nome dos compressores */
 #tituloCompressor {
-    border-radius: 5px;
-    font-size: 13px;
     color: white;
-    width: 50x;
-    height: 4px;
-    margin-left: 35px;
-    border-color: white;    
+    font-size: 14px;
 }
 
-.bottoes {
+#menuDireito {
 
     background-color: #303030;
-    grid-column: 1/2;
-    grid-row: 2/2;
-    margin-top: 30px;
     border-radius: 15px;
-    border-style: none;
-    width: 140px;
-    height: 350px;
+    padding: 15px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;  
+    text-align: center;
+
+    gap: 15px;
+
+    grid-column: 3;
+    grid-row: 2;    
+
 }
 
+/* Animação de Slide dos Comp */
+
+.flagComp1 {
+    
+    grid-row: 2;    
+    grid-column: 2; 
+    background-color: aqua;
+    animation: fadeInAnim 0.4s ease forwards;
+
+}
+
+@keyframes fadeInAnim {
+    0% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.flagComp2 {
+    
+    grid-row: 2;    
+    grid-column: 2; 
+    background-color: aqua;
+    animation: fadeInAnim 0.4s ease forwards;
+
+}
+
+@keyframes fadeInAnim {
+    0% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.flagComp3 {
+    
+    grid-row: 2;    
+    grid-column: 2; 
+    background-color: aqua;
+    animation: fadeInAnim 0.4s ease forwards;
+
+}
+
+@keyframes fadeInAnim {
+    0% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+/* ============================
+   ÍCONES DOS COMPRESSORES
+   ============================ */
+
+.compresso1,
+.compressor2,
+.compressor3 {
+    width: 60px;
+    height: 60px;
+
+    background-image: url('../Images/erasebg-transformed (4).png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    border-radius: 15px;
+    background-color: none;
+
+    transition: 0.3s ease;
+}
+
+/* Hover dos botoes */
+.compresso1:hover,
+.compressor2:hover,
+.compressor3:hover {
+    transform: translateY(-3px);
+    filter: drop-shadow(0 0 5px rgba(10, 201, 0, 0.3));
+}
+
+
+/* ============================
+   ÁREA PRINCIPAL
+   ============================ */
 #userView {
-    width: 200px;
-    height: 400px;
     background-color: #303030;
-    grid-column: 2/3;
-    grid-row: 2/3;
-    width: auto;
-    height: auto;
     border-radius: 15px;
+
+    grid-column: 2; /* área central */
+    grid-row: 2;
+
+    padding: 20px;
+    height: 120%;
+    overflow: auto;
 }
 
 
-
-
-/*ESTILIZAÇÃO DOS COMPONENTES DOS COMPRESSORES*/
+/* ============================
+   GRID INTERNA DO COMPRESSOR
+   ============================ */
 
 #comp {
-    width: 950px;
-    height: 400px;
     display: grid;
-    grid-template-columns: 237px 237px 237px 237px;
-    grid-template-rows: 70px 70x 70px 70px 70px;
+    width: 100%;
+    gap: 20px;
+    grid-template-rows: repeat(auto-fit, minmax(200px, 1fr,1fr)); ;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr,1fr));
 }
 
 
-#tituloComp {
 
-    margin-left: 30px;
-    grid-column: 2/4;
-    grid-row: 1/5;
-
+#gaugeDischargePressure {
+    max-height: fit-content;
+    max-width: fit-content;
+    grid-column: 3;
+    grid-row: 3;
+    background-color: white;
 }
 
-#tituloCompt2 {
-
-    grid-column: 3/4;
-    grid-row: 1/5;
-    margin-right: 30px;
-    
+#gaugeSumpress {
+    grid-column:1;
+    grid-row: 3;
+    height: 80px;
 }
-
- #gaugeDischargePressure {
-    background-color: rgb(255, 0, 0);
-    width: 237px;
-    height: 70x;
-    grid-column: 1/4;
-    grid-row: 5/5;
- }
-
-
-
- #gaugeSumpress {
-    width: 237px;
-    height: 70x;
-    grid-row: 5/5;
-    grid-column: 2/4;
-
- }
-

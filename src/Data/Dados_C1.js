@@ -81,13 +81,7 @@ function Comp1() {
 
   return (
     <div id="comp">
-      <div id="tituloComp">
-      <h1>Dashboard</h1>
-      </div>
-
-      <div id="tituloCompt2">
-      <h1>Compressor 1</h1>
-      </div>
+      
 
       <div id="gaugeDischargePressure">
         
@@ -113,7 +107,6 @@ function Comp1() {
           <p>Sum Press: {compressorData.sumpPress}</p>
 
       </div>
-        
     </div>
   );
 }
