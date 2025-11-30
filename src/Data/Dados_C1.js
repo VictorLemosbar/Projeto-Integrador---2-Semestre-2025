@@ -1,45 +1,45 @@
 import React, { useState, useEffect } from "react";
 import GaugeChart from 'react-gauge-chart'; // Importa a biblioteca do Gauge
-import consult from "../API/Api";
+import consult from "../API/Api"; // Importa retorno da Api
+import Comp3 from "./Dados_C3";
+import Comp2 from "./Dados_C2"
 
 const LIMITES = {
-  PRESSURE: { 
-    max: 10, 
-    zones: [0.6, 0.2, 0.2], 
-    colors: ['#5BE12C', '#F5CD19', '#EA4228'], 
+  PRESSURE: {
+    max: 10,
+    zones: [0.6, 0.2, 0.2],
+    colors: ['#5BE12C', '#F5CD19', '#EA4228'],
     unit: ' bar',
     title: 'Pressão de Descarga'
-  }, 
-  SUMP: { 
-    max: 5, 
-    zones: [0.8, 0.1, 0.1], 
-    colors: ['#5BE12C', '#F5CD19', '#EA4228'], 
+  },
+  SUMP: {
+    max: 5,
+    zones: [0.8, 0.1, 0.1],
+    colors: ['#5BE12C', '#F5CD19', '#EA4228'],
     unit: ' bar',
     title: 'Pressão do Sump'
   },
 };
 
-// --- Componente Reutilizável para o Medidor (Gauge) ---
 const MetricGauge = ({ dataKey, data, limits }) => {
-  // Puxa o valor do objeto de dados usando a chave (dataKey)
   const currentValue = data[dataKey] || 0;
-  
-  // Converte o valor real (Ex: 6.6) para um percentual de 0 a 1 para o Gauge
-  const percentValue = currentValue / limits.max; 
+
+  const percentValue = currentValue / limits.max;
 
   return (
-    <div style={{ textAlign: 'center', width: '250px', }}>
+    <div style={{color: "white",paddingLeft: '90px', alignItems: 'center', width: '250px', }}>
+          {/* Estilização inicial do cauge */}
+
 
       <h3>{limits.title}</h3>
 
-      <GaugeChart 
+      <GaugeChart
         id={`gauge-${dataKey}`}
         nrOfLevels={limits.zones.length}
         arcsLength={limits.zones}
         colors={limits.colors}
         arcWidth={0.3}
-        // Limita o ponteiro a 100% (1.0) mesmo se o valor exceder o máximo
-        percent={percentValue > 1 ? 1 : percentValue} 
+        percent={percentValue > 1 ? 1 : percentValue}
         textColor="#000"
         needleColor="#345243"
         formatTextValue={() => `${currentValue.toFixed(1)}${limits.unit}`}
@@ -57,8 +57,23 @@ function Comp1() {
   useEffect(() => {
     async function loadData() {
       try {
-        const fetchedData = await consult();
-        setCompressorData(fetchedData);
+        //fetchedData recebe o json de dados
+        let fetchedData = await consult();
+
+        //const item = fetchedData.find(reg => reg.id === 2);
+
+        /* Filtro nos compresores 
+        if (item) {
+          setCompressorData(item);
+        } else {
+          setCompressorData(null);
+          console.log("Nenhum registro com id=2 encontrado!");
+        }
+
+        */
+
+        // Retirar quando os compressores estiverem mandado todos os registros
+        setCompressorData(fetchedData)
       } catch (error) {
         console.error("Erro ao carregar dados:", error);
       } finally {
@@ -70,21 +85,21 @@ function Comp1() {
 
 
   if (isLoading) {
-    return <div>Carregando dados do Compressor...</div>;
+    return <div id="mensagemLoading">Carregando dados do Compressor...</div>;
   }
 
   if (!compressorData) {
-    return <div>Não foi possível carregar os dados.</div>;
+    return <div id="mensagemErro">Não foi possível carregar os dados.</div>;
   }
-  
+
   const data = compressorData;
 
   return (
     <div id="comp">
-      
+
 
       <div id="gaugeDischargePressure">
-        
+
         <MetricGauge
           dataKey="packageDischargePressure"
           data={data}
@@ -93,8 +108,6 @@ function Comp1() {
       </div>
 
       <div id="gaugeSumpress">
-
-        {/* Medidor de Pressão do Sump */}
         <MetricGauge id="sumpress"
           dataKey="sumpPress"
           data={data}
@@ -102,11 +115,100 @@ function Comp1() {
         />
       </div>
 
-      <div id="">
 
-          <p>Sum Press: {compressorData.sumpPress}</p>
-
+      <div id="horasFuncionamento">
+        <br />
+        <p>
+          <div className="tituloData">{"Horas Funcionamento:"}</div>
+        </p>
+        <p>
+          <div className="valorDado">{"2"}</div>
+        </p>
       </div>
+
+      <div id="temperatura">
+        <br />
+        <p>
+          <div className="tituloData">{"Temperatura:"}</div>
+        </p>
+        <br />
+        <p>
+          <div className="valorDado">{compressorData.temperatura}</div>
+        </p>
+      </div>
+
+      <div id="velocidadeMotor">
+        <br />
+        <p>
+          <div className="tituloData">{"Velocidade Motor:"}</div>
+        </p>
+        <p>
+          <div className="valorDado">{compressorData.velocidadeMotor}</div>
+        </p>
+      </div>
+
+      <div id="potenciaUnidade">
+        <br />
+        <p>
+          <div className="tituloData">{"Potência da Unidade:"}</div>
+        </p>
+        <p>
+          <div className="valorDado">{compressorData.potenciaUnidade}</div>
+        </p>
+      </div>
+
+      <div id="correnteMotor1">
+        <br />
+        <p>
+          <div className="tituloData">{"Corrente Motor:"}</div>
+        </p>
+        <p>
+          <div className="valorDado">{compressorData.correnteMotor1}</div>
+        </p>
+      </div>
+
+      <div id="correnteMotor2">
+        <br />
+        <p>
+          <div className="tituloData">{"Corrente Motor:"}</div>
+        </p>
+        <p>
+          <div className="valorDado">{2}</div>
+        </p>
+      </div>
+
+      <div id="tensaoEntradaCA">
+        <br />
+        <p>
+          <div className="tituloData">{"Tensão de Entrada CA:"}</div>
+        </p>
+        <p>
+          <div className="valorDado">{compressorData.tensaoEntradaCA}</div>
+        </p>
+      </div>
+
+      <div id="tensaoEntradaGBT">
+        <br />
+        <p>
+          <div className="tituloData">{"Tensão de Entrada GBT VW:"}</div>
+        </p>
+        <p>
+          <div className="valorDado">{compressorData.tensaoEntradaGBT}</div>
+        </p>
+      </div>
+
+      <div id="temperaturaGBTIZ">
+        <br />
+        <p>
+          <div className="tituloData">{"Temperatura de GBT IZ:"}</div>
+        </p>
+        <p>
+          <div className="valorDado">{2}</div>
+        </p>
+      </div>
+
+
+
     </div>
   );
 }

@@ -1,0 +1,100 @@
+body {
+    margin: 0;
+    background-color: black;
+    font-family: Arial, sans-serif;
+}
+
+/* GRID PRINCIPAL — versão híbrida adaptável */
+#app {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    grid-template-rows: auto 2fr auto;
+    gap: 20px;
+    padding: 20px;
+}
+
+#titulo {
+    grid-column: 2;
+    background-color: #303030;
+    color: white;
+    border-radius: 15px;
+    max-height: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* Menu esquerdo */
+.menuEsquerdo {
+    background-color: #303030;
+    border-radius: 15px;
+    padding: 15px;
+    max-width: 90px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 15px;
+    grid-column: 1;
+    grid-row: 2;
+}
+
+#menuDireito {
+    background-color: #303030;
+    border-radius: 15px;
+    padding: 15px;
+    min-height: 400px;
+    min-width: 117px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 15px;
+    grid-column: 3;
+    grid-row: 2;
+}
+
+#userView {
+    background-color: #303030;
+    border-radius: 15px;
+    grid-column: 2;
+    grid-row: 2;
+    min-height: 500px;
+    max-height: 600px;
+    overflow-y: auto;
+}
+
+#mensagemErro {
+    color: white;
+    grid-column: 2;
+    margin-left: 450px;
+    animation: fadeInAnim 0.4s ease forwards;
+}
+
+#mensagemLoading {
+    margin-left: 450px;
+    align-items: center;
+    color: white;
+    animation: fadeInAnim 0.4s ease forwards;
+}
+
+#tituloCompressor {
+    color: white;
+    font-size: 14px;
+}
+
+#titulStatus {
+    color: white;
+    font-size: 14px;
+}
+
+#imagemStatus {
+    width: 70px;
+    height: 70px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
