@@ -145,23 +145,16 @@ function MyApp() {
       </div>
 
       <div id="userView">
-
+{/* Logica para renderização dos componentes e mensagem de seleção*/}
   {(!compOneVisible && !compTwoVisible && !compThreeVisible) ? (
 
       <div id="mensagem">Selecione um compressor</div>
-
   ) : compOneVisible ? (
-
       mostrarComp1()
-
   ) : compTwoVisible ? (
-
       mostrarComp2()
-
   ) : compThreeVisible ? (
-
       mostrarComp3()
-
   ) : null}
 
 </div>
