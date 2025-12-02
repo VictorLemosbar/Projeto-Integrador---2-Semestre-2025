@@ -25,7 +25,7 @@ const MetricGauge = ({ dataKey, data, limits }) => {
   const percentValue = currentValue / limits.max;
 
   return (
-    <div style={{ paddingLeft: '90px', alignItems: 'center', width: '250px', }}>
+    <div style={{color: "white", alignItems: 'center', maxWidth: '150px', }}>
     {/* Estilização inicial do cauge */}
 
       <h3>{limits.title}</h3>
