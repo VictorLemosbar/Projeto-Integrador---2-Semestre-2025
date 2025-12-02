@@ -96,7 +96,7 @@ function MyApp() {
 
           className={`compresso1 ${activeComp === 1 ? "compressor-inativo" : ""}`}
           onClick={() => {
-            if (activeComp != 1) {
+            if (activeComp !== 1) {
               setActiveComp(1);
             } else {
               setActiveComp(0);
@@ -112,7 +112,7 @@ function MyApp() {
         <button
           className={`compressor2 ${activeComp === 2 ? "compressor-inativo" : ""}`}
           onClick={() => {
-            if (activeComp != 2) {
+            if (activeComp !== 2) {
               setActiveComp(2);
             } else {
               setActiveComp(0);
@@ -127,7 +127,7 @@ function MyApp() {
         <button
           className={`compressor3 ${activeComp === 3 ? "compressor-inativo" : ""}`}
           onClick={() => {
-            if (activeComp != 3) {
+            if (activeComp !== 3) {
               setActiveComp(3);
             } else {
               setActiveComp(0);

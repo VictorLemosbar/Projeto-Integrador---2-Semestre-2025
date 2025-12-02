@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import GaugeChart from 'react-gauge-chart'; // Importa a biblioteca do Gauge
 import consult from "../API/Api"; // Importa retorno da Api
-import Comp3 from "./Dados_C3";
-import Comp2 from "./Dados_C2"
 
 const LIMITES = {
   PRESSURE: {
@@ -27,10 +25,10 @@ const MetricGauge = ({ dataKey, data, limits }) => {
   const percentValue = currentValue / limits.max;
 
   return (
-    <div style={{color: "white",paddingLeft: '90px', alignItems: 'center', width: '250px', }}>
-          {/* Estilização inicial do cauge */}
-
-
+    <div style={{color: "white", alignItems: 'center', maxWidth: '150px', }}>
+      
+      
+      {/* Estilização inicial do cauge */}
       <h3>{limits.title}</h3>
 
       <GaugeChart
@@ -97,7 +95,7 @@ function Comp1() {
   return (
     <div id="comp">
 
-
+    
       <div id="gaugeDischargePressure">
 
         <MetricGauge
@@ -206,9 +204,6 @@ function Comp1() {
           <div className="valorDado">{2}</div>
         </p>
       </div>
-
-
-
     </div>
   );
 }

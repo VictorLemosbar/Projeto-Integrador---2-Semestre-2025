@@ -1,10 +1,10 @@
-/* GRID INTERNA DO COMPRESSOR */
+/* Grid interna onde os compressores ficam */
 #comp {
     display: grid;
     width: 100%;
-    gap: 2px;
-    grid-template-rows: repeat(auto-fit, minmax(200px, 1fr, 1fr));
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr, 1fr, 1fr));
+    gap: 5px;
+    grid-template-rows: repeat(auto-fit, minmax(1fr, 1fr, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(1fr, 1fr, 1fr));
     animation: fadeInAnim 0.4s ease forwards;
     text-align: center;
 }
@@ -28,28 +28,34 @@
 }
 
 /* Posições dos dados com animação de fade */
-#horasFuncionamento { grid-column: 2; grid-row: 1; animation: fadeInAnim 0.4s ease forwards; }
-#temperatura { grid-column: 1; grid-row: 1; animation: fadeInAnim 0.4s ease forwards; }
-#velocidadeMotor { grid-column: 3; grid-row: 2; animation: fadeInAnim 0.4s ease forwards; }
-#potenciaUnidade { grid-column: 3; grid-row: 1; animation: fadeInAnim 0.4s ease forwards; }
-#correnteMotor1 { grid-column: 1; grid-row: 2; animation: fadeInAnim 0.4s ease forwards; }
-#correnteMotor2 { grid-column: 2; grid-row: 2; animation: fadeInAnim 0.4s ease forwards; }
-#tensaoEntradaCA { grid-column: 3; grid-row: 3; animation: fadeInAnim 0.4s ease forwards; }
-#tensaoEntradaGBT { grid-column: 1; grid-row: 3; animation: fadeInAnim 0.4s ease forwards; }
-#temperaturaGBTIZ { grid-column: 2; grid-row: 3; animation: fadeInAnim 0.4s ease forwards; }
+#horasFuncionamento { grid-column: 2; grid-row: 1; margin-top: 5px; animation: fadeInAnim 0.4s ease forwards; background-color: rgb(0, 0, 0); border: 5px; border-radius: 15px; min-width: 220px;justify-self: center; }
+#temperatura { grid-column: 1; grid-row: 1; margin-top: 5px; animation: fadeInAnim 0.4s ease forwards; background-color: rgb(0, 0, 0); border: 5px; border-radius: 15px; min-width: 220px;justify-self: center;}
+#velocidadeMotor { grid-column: 3; grid-row: 2; animation: fadeInAnim 0.4s ease forwards; background-color: rgb(0, 0, 0); border: 5px; border-radius: 15px; min-width: 220px;justify-self: center;}
+#potenciaUnidade { grid-column: 3; grid-row: 1; margin-top: 5px; animation: fadeInAnim 0.4s ease forwards; background-color: rgb(0, 0, 0); border: 5px; border-radius: 15px; min-width: 220px;justify-self: center;}
+#correnteMotor1 { grid-column: 1; grid-row: 2; animation: fadeInAnim 0.4s ease forwards; background-color: rgb(0, 0, 0); border: 5px; border-radius: 15px;  min-width: 220px;justify-self: center;}
+#correnteMotor2 { grid-column: 2; grid-row: 2; animation: fadeInAnim 0.4s ease forwards; background-color: rgb(0, 0, 0); border: 5px; border-radius: 15px;   min-width: 220px;justify-self: center;}
+#tensaoEntradaCA { grid-column: 3; grid-row: 3; animation: fadeInAnim 0.4s ease forwards; background-color: rgb(0, 0, 0); border: 5px; border-radius: 15px; min-width: 220px;justify-self: center;}
+#tensaoEntradaGBT { grid-column: 1; grid-row: 3; animation: fadeInAnim 0.4s ease forwards; background-color: rgb(0, 0, 0); border: 5px; border-radius: 15px;  min-width: 220px;justify-self: center;}
+#temperaturaGBTIZ { grid-column: 2; grid-row: 3; animation: fadeInAnim 0.4s ease forwards; background-color: rgb(0, 0, 0); border: 5px; border-radius: 15px;  min-width: 220px;justify-self: center;}
 
 /* Gauges */
+
+
+
+
 #gaugeDischargePressure {
-    max-height: fit-content;
-    max-width: fit-content;
+    min-width: 150px;
     grid-column: 3;
     grid-row: 4;
     animation: fadeInAnim 0.4s ease forwards;
+    justify-self: center
 }
 
 #gaugeSumpress {
+    min-width: 150px;
     grid-column: 1;
     grid-row: 4;
-    height: 80px;
     animation: fadeInAnim 0.4s ease forwards;
+    min-width: 1fr;
+    justify-self: center
 }

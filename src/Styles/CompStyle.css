@@ -1,4 +1,4 @@
-
+/* Animação de fade */
 @keyframes fadeInAnim {
     0% {
         opacity: 0;
@@ -10,7 +10,7 @@
     }
 }
 
-/* ÍCONES DOS COMPRESSORES */
+/* Icone dos compressores*/
 .compresso1,
 .compressor2,
 .compressor3 {
