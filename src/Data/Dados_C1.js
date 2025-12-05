@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 import GaugeChart from 'react-gauge-chart'; // Importa a biblioteca do Gauge
-import consult from "../API/Api"; // Importa retorno da Api
+import consult from "../API/Api";
 
 const LIMITES = {
-  PRESSURE: {
-    max: 10,
+  ENGINECURRENT: {
+    max: 100,
     zones: [0.6, 0.2, 0.2],
     colors: ['#5BE12C', '#F5CD19', '#EA4228'],
     unit: ' bar',
-    title: 'Pressão de Descarga'
+    title: 'Corrente do Motor'
   },
   SUMP: {
     max: 5,
@@ -16,6 +16,13 @@ const LIMITES = {
     colors: ['#5BE12C', '#F5CD19', '#EA4228'],
     unit: ' bar',
     title: 'Pressão do Sump'
+  },
+  ENGINESPEED: {
+    max: 10000,
+    zones: [0.8, 0.1, 0.1],
+    colors: ['#5BE12C', '#F5CD19', '#EA4228'],
+    unit: ' rpm',
+    title: 'Velocidade do Motor'
   },
 };
 
@@ -26,9 +33,8 @@ const MetricGauge = ({ dataKey, data, limits }) => {
 
   return (
     <div style={{color: "white", alignItems: 'center', maxWidth: '150px', }}>
-      
-      
       {/* Estilização inicial do cauge */}
+
       <h3>{limits.title}</h3>
 
       <GaugeChart
@@ -38,7 +44,7 @@ const MetricGauge = ({ dataKey, data, limits }) => {
         colors={limits.colors}
         arcWidth={0.3}
         percent={percentValue > 1 ? 1 : percentValue}
-        textColor="#000"
+        textColor="#ffffffff"
         needleColor="#345243"
         formatTextValue={() => `${currentValue.toFixed(1)}${limits.unit}`}
         animate={true}
@@ -47,8 +53,8 @@ const MetricGauge = ({ dataKey, data, limits }) => {
   );
 };
 
+function Comp2() {
 
-function Comp1() {
   const [compressorData, setCompressorData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -58,14 +64,16 @@ function Comp1() {
         //fetchedData recebe o json de dados
         let fetchedData = await consult();
 
-        const filttro = fetchedData[1]
+        const filtro = fetchedData[1]
 
-        if (filttro) {
-          setCompressorData(filttro);
+        if (filtro) {
+          setCompressorData(filtro);
         } else {
           setCompressorData(null);
-          console.log("Nenhum registro com id=1 encontrado!");
+          console.log("Nenhum registro com id=2 encontrado!");
         }
+
+      
       } catch (error) {
         console.error("Erro ao carregar dados:", error);
       } finally {
@@ -89,13 +97,12 @@ function Comp1() {
   return (
     <div id="comp">
 
-    
-      <div id="gaugeDischargePressure">
 
+      <div id="gaugeMotorCurrent">
         <MetricGauge
-          dataKey="packageDischargePressure"
+          dataKey="motorCurrent"
           data={data}
-          limits={LIMITES.PRESSURE}
+          limits={LIMITES.ENGINECURRENT}
         />
       </div>
 
@@ -107,99 +114,108 @@ function Comp1() {
         />
       </div>
 
-
-      <div id="horasFuncionamento">
-        <br />
-        <p>
-          <div className="tituloData">{"Horas Funcionamento:"}</div>
-        </p>
-        <p>
-          <div className="valorDado">{"2"}</div>
-        </p>
+      <div id="gaugeVelocidadeMotor">
+        <MetricGauge
+          dataKey="motorSpeed"
+          data={data}
+          limits={LIMITES.ENGINESPEED}
+        />
       </div>
 
-      <div id="temperatura">
+
+      <div id="vacuoAdmissao">
         <br />
         <p>
-          <div className="tituloData">{"Temperatura:"}</div>
+          <div className="tituloData">{"Vacuo de Admissão:"}</div>
         </p>
-        <br />
         <p>
           <div className="valorDado">{compressorData.inletVacuum}</div>
         </p>
       </div>
 
-      <div id="velocidadeMotor">
+      <div id="pressaoEntrada">
         <br />
         <p>
-          <div className="tituloData">{"Velocidade Motor:"}</div>
+          <div className="tituloData">{"Pressão de entrada do filtro de arrefecimento:"}</div>
         </p>
         <p>
-          <div className="valorDado">{compressorData.velocidadeMotor}</div>
+          <div className="valorDado">{compressorData.coolantFilterInPressure}</div>
         </p>
       </div>
 
-      <div id="potenciaUnidade">
+      <div id="pressaoSaidaFiltro">
         <br />
         <p>
-          <div className="tituloData">{"Potência da Unidade:"}</div>
+          <div className="tituloData">{"Pressão de saida do filtro de arrefecimento:"}</div>
         </p>
         <p>
-          <div className="valorDado">{compressorData.potenciaUnidade}</div>
+          <div className="valorDado">{compressorData.coolantFilterOutPressure}</div>
         </p>
       </div>
 
-      <div id="correnteMotor1">
+      <div id="pressaoDescargaAfterCooler">
         <br />
         <p>
-          <div className="tituloData">{"Corrente Motor:"}</div>
+          <div className="tituloData">{"Pressão de Descarga do Aftercooler:"}</div>
         </p>
         <p>
-          <div className="valorDado">{compressorData.correnteMotor1}</div>
+          <div className="valorDado">{compressorData.afterCoolerDischargePress}</div>
         </p>
       </div>
 
-      <div id="correnteMotor2">
+      <div id="quedaPressao">
         <br />
         <p>
-          <div className="tituloData">{"Corrente Motor:"}</div>
+          <div className="tituloData">{"Queda de pressão do separador"}</div>
         </p>
         <p>
-          <div className="valorDado">{2}</div>
+          <div className="valorDado">{compressorData.separatorPressureDrop}</div>
         </p>
       </div>
 
-      <div id="tensaoEntradaCA">
+      <div id="temperaturaLiquidoArrefecimento">
         <br />
         <p>
-          <div className="tituloData">{"Tensão de Entrada CA:"}</div>
+          <div className="tituloData">{"Temperatura do Líquido de Arrefecimento Injetado"}</div>
         </p>
         <p>
-          <div className="valorDado">{compressorData.tensaoEntradaCA}</div>
+          <div className="valorDado">{compressorData.injectedCoolantTemp}</div>
         </p>
       </div>
 
-      <div id="tensaoEntradaGBT">
+      <div id="temperaturaUnidadeParafuso">
         <br />
         <p>
-          <div className="tituloData">{"Tensão de Entrada GBT VW:"}</div>
+          <div className="tituloData">{"Temperatura da Unidade Parafuso:"}</div>
         </p>
         <p>
-          <div className="valorDado">{compressorData.tensaoEntradaGBT}</div>
+          <div className="valorDado">{compressorData.airendTemp}</div>
         </p>
       </div>
 
-      <div id="temperaturaGBTIZ">
+      <div id="temperaturaDescargaAftercooler">
         <br />
         <p>
-          <div className="tituloData">{"Temperatura de GBT IZ:"}</div>
+          <div className="tituloData">{"Temperatura de Descarga do Aftercooler:"}</div>
         </p>
         <p>
-          <div className="valorDado">{2}</div>
+          <div className="valorDado">{compressorData.afterCoolerDischargeTemp}</div>
         </p>
       </div>
+
+      <div id="tempoDeResfriamento">
+        <br />
+        <p>
+          <div className="tituloData">{"Tempo de Resfriamento"}</div>
+        </p>
+        <p>
+          <div className="valorDado">{compressorData.coolerOutTemp}</div>
+        </p>
+      </div>
+
+    
+
     </div>
   );
 }
-
-export default Comp1;
+export default Comp2;
