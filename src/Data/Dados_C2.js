@@ -4,11 +4,11 @@ import consult from "../API/Api";
 
 const LIMITES = {
   PRESSURE: {
-    max: 10,
+    max: 100,
     zones: [0.6, 0.2, 0.2],
     colors: ['#5BE12C', '#F5CD19', '#EA4228'],
     unit: ' bar',
-    title: 'Pressão de Descarga'
+    title: 'Corrente do Motor'
   },
   SUMP: {
     max: 5,
@@ -16,6 +16,13 @@ const LIMITES = {
     colors: ['#5BE12C', '#F5CD19', '#EA4228'],
     unit: ' bar',
     title: 'Pressão do Sump'
+  },
+  SUMP: {
+    max: 5,
+    zones: [0.8, 0.1, 0.1],
+    colors: ['#5BE12C', '#F5CD19', '#EA4228'],
+    unit: ' bar',
+    title: 'Velocidade do Motor'
   },
 };
 
@@ -37,7 +44,7 @@ const MetricGauge = ({ dataKey, data, limits }) => {
         colors={limits.colors}
         arcWidth={0.3}
         percent={percentValue > 1 ? 1 : percentValue}
-        textColor="#000"
+        textColor="#ffffffff"
         needleColor="#345243"
         formatTextValue={() => `${currentValue.toFixed(1)}${limits.unit}`}
         animate={true}
@@ -91,10 +98,9 @@ function Comp2() {
     <div id="comp">
 
 
-      <div id="gaugeDischargePressure">
-
+      <div id="gaugeMotorCurrent">
         <MetricGauge
-          dataKey="packageDischargePressure"
+          dataKey="motorCurrent"
           data={data}
           limits={LIMITES.PRESSURE}
         />
@@ -108,8 +114,16 @@ function Comp2() {
         />
       </div>
 
+      <div id="gaugeVelocidadeMotor">
+        <MetricGauge id="sumpress"
+          dataKey="sumpPress"
+          data={data}
+          limits={LIMITES.SUMP}
+        />
+      </div>
 
-      <div id="horasFuncionamento">
+
+      <div id="vacuoAdmissao">
         <br />
         <p>
           <div className="tituloData">{"Vacuo de Admissão:"}</div>
@@ -119,18 +133,17 @@ function Comp2() {
         </p>
       </div>
 
-      <div id="temperatura">
+      <div id="pressaoEntrada">
         <br />
         <p>
           <div className="tituloData">{"Pressão de entrada do filtro de arrefecimento:"}</div>
         </p>
-        <br />
         <p>
           <div className="valorDado">{compressorData.coolantFilterInPressure}</div>
         </p>
       </div>
 
-      <div id="velocidadeMotor">
+      <div id="pressaoSaidaFiltro">
         <br />
         <p>
           <div className="tituloData">{"Pressão de saida do filtro de arrefecimento:"}</div>
@@ -140,7 +153,7 @@ function Comp2() {
         </p>
       </div>
 
-      <div id="potenciaUnidade">
+      <div id="pressaoDescargaAfterCooler">
         <br />
         <p>
           <div className="tituloData">{"Pressão de Descarga do Aftercooler:"}</div>
@@ -150,7 +163,7 @@ function Comp2() {
         </p>
       </div>
 
-      <div id="correnteMotor1">
+      <div id="quedaPressao">
         <br />
         <p>
           <div className="tituloData">{"Queda de pressão do separador"}</div>
@@ -160,7 +173,7 @@ function Comp2() {
         </p>
       </div>
 
-      <div id="correnteMotor2">
+      <div id="temperaturaLiquidoArrefecimento">
         <br />
         <p>
           <div className="tituloData">{"Temperatura do Líquido de Arrefecimento Injetado"}</div>
@@ -170,7 +183,7 @@ function Comp2() {
         </p>
       </div>
 
-      <div id="tensaoEntradaCA">
+      <div id="temperaturaUnidadeParafuso">
         <br />
         <p>
           <div className="tituloData">{"Temperatura da Unidade Parafuso:"}</div>
@@ -180,23 +193,23 @@ function Comp2() {
         </p>
       </div>
 
-      <div id="tensaoEntradaGBT">
+      <div id="temperaturaDescargaAftercooler">
         <br />
         <p>
-          <div className="tituloData">{"emperatura de Descarga do Aftercooler:"}</div>
+          <div className="tituloData">{"Temperatura de Descarga do Aftercooler:"}</div>
         </p>
         <p>
           <div className="valorDado">{compressorData.afterCoolerDischargeTemp}</div>
         </p>
       </div>
 
-      <div id="temperaturaGBTIZ">
+      <div id="tempoDeResfriamento">
         <br />
         <p>
-          <div className="tituloData">{"Temperatura de GBT IZ:"}</div>
+          <div className="tituloData">{"Tempo de Resfriamento"}</div>
         </p>
         <p>
-          <div className="valorDado">{2}</div>
+          <div className="valorDado">{compressorData.coolerOutTemp}</div>
         </p>
       </div>
 

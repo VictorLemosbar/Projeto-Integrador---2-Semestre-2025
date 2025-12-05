@@ -28,22 +28,20 @@
 }
 
 /* Posições dos dados com animação de fade */
-#horasFuncionamento { grid-column: 2; grid-row: 1; margin-top: 5px; animation: fadeInAnim 0.4s ease forwards; background-color: rgb(0, 0, 0); border: 5px; border-radius: 15px; min-width: 220px;justify-self: center; }
-#temperatura { grid-column: 1; grid-row: 1; margin-top: 5px; animation: fadeInAnim 0.4s ease forwards; background-color: rgb(0, 0, 0); border: 5px; border-radius: 15px; min-width: 220px;justify-self: center;}
-#velocidadeMotor { grid-column: 3; grid-row: 2; animation: fadeInAnim 0.4s ease forwards; background-color: rgb(0, 0, 0); border: 5px; border-radius: 15px; min-width: 220px;justify-self: center;}
-#potenciaUnidade { grid-column: 3; grid-row: 1; margin-top: 5px; animation: fadeInAnim 0.4s ease forwards; background-color: rgb(0, 0, 0); border: 5px; border-radius: 15px; min-width: 220px;justify-self: center;}
-#correnteMotor1 { grid-column: 1; grid-row: 2; animation: fadeInAnim 0.4s ease forwards; background-color: rgb(0, 0, 0); border: 5px; border-radius: 15px;  min-width: 220px;justify-self: center;}
-#correnteMotor2 { grid-column: 2; grid-row: 2; animation: fadeInAnim 0.4s ease forwards; background-color: rgb(0, 0, 0); border: 5px; border-radius: 15px;   min-width: 220px;justify-self: center;}
-#tensaoEntradaCA { grid-column: 3; grid-row: 3; animation: fadeInAnim 0.4s ease forwards; background-color: rgb(0, 0, 0); border: 5px; border-radius: 15px; min-width: 220px;justify-self: center;}
-#tensaoEntradaGBT { grid-column: 1; grid-row: 3; animation: fadeInAnim 0.4s ease forwards; background-color: rgb(0, 0, 0); border: 5px; border-radius: 15px;  min-width: 220px;justify-self: center;}
-#temperaturaGBTIZ { grid-column: 2; grid-row: 3; animation: fadeInAnim 0.4s ease forwards; background-color: rgb(0, 0, 0); border: 5px; border-radius: 15px;  min-width: 220px;justify-self: center;}
+#vacuoAdmissao { grid-column: 2; grid-row: 1; margin-top: 5px; animation: fadeInAnim 0.4s ease forwards; background-color: rgb(0, 0, 0); border: 5px; border-radius: 15px; min-width: 360px; max-width: 380px;justify-self: center; max-height: 120px }
+#pressaoEntrada { grid-column: 1; grid-row: 1; margin-top: 5px; animation: fadeInAnim 0.4s ease forwards; background-color: rgb(0, 0, 0); border: 5px; border-radius: 15px; min-width: 360px;max-width: 380px;justify-self: center;max-height: 120px}
+#pressaoSaidaFiltro { grid-column: 3; grid-row: 2; animation: fadeInAnim 0.4s ease forwards; background-color: rgb(0, 0, 0); border: 5px; border-radius: 15px; min-width: 360px;max-width: 380px;justify-self: center;}
+#pressaoDescargaAfterCooler { grid-column: 3; grid-row: 1; margin-top: 5px; animation: fadeInAnim 0.4s ease forwards; background-color: rgb(0, 0, 0); border: 5px; border-radius: 15px; min-width: 360px;max-width: 380px;justify-self: center;}
+#quedaPressao { grid-column: 1; grid-row: 2; animation: fadeInAnim 0.4s ease forwards; background-color: rgb(0, 0, 0); border: 5px; border-radius: 15px;  min-width: 360px;max-width: 380px;justify-self: center;}
+#temperaturaLiquidoArrefecimento { grid-column: 2; grid-row: 2; animation: fadeInAnim 0.4s ease forwards; background-color: rgb(0, 0, 0); border: 5px; border-radius: 15px;   min-width: 360px;max-width: 380px;justify-self: center;}
+#temperaturaUnidadeParafuso { grid-column: 3; grid-row: 3; animation: fadeInAnim 0.4s ease forwards; background-color: rgb(0, 0, 0); border: 5px; border-radius: 15px; min-width: 360px;max-width: 380px;justify-self: center;}
+#temperaturaDescargaAftercooler { grid-column: 1; grid-row: 3; animation: fadeInAnim 0.4s ease forwards; background-color: rgb(0, 0, 0); border: 5px; border-radius: 15px;  min-width: 360px;max-width: 380px;justify-self: center;}
+#tempoDeResfriamento { grid-column: 2; grid-row: 3; animation: fadeInAnim 0.4s ease forwards; background-color: rgb(0, 0, 0); border: 5px; border-radius: 15px;  min-width: 360px;max-width: 380px;justify-self: center;}
 
 /* Gauges */
 
 
-
-
-#gaugeDischargePressure {
+#gaugeMotorCurrent{
     min-width: 150px;
     grid-column: 3;
     grid-row: 4;
