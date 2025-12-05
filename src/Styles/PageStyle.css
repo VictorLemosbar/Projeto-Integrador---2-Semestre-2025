@@ -106,39 +106,47 @@ body {
 }
 
 #userView {
+  display: grid;
   background-color: #303030;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
   border-radius: 15px;
   grid-column: 2;
   grid-row: 2;
   min-height: 500px;
   max-height: 600px;
   overflow-y: auto;
+  
 }
 
 #mensagem {
   max-width: 300px;
-  min-height: 70px;
-  padding-top: 50px;
+  max-height: 70px;
   text-align: center;
+  grid-column: 2;
+  grid-row: 2;
   background-color: rgb(0, 0, 0);
-  margin-left: 38%;
-  margin-top: 15%;
   color: rgb(255, 255, 255);
   font-size: larger;
   border-radius: 15px;
+  padding-top: 10%;
   border-color: hwb(#000000);
   border-style: solid;
   animation: fadeInAnim 0.4s ease forwards;
+  text-align: center;
+  place-items: center;
+
+
 }
 
 #mensagemErro {
-    max-width: 350px;
-  min-height: 70px;
-  padding-top: 50px;
+  grid-column: 2;
+  grid-row: 2;
+  max-width: 350px;
+  max-height: 70px;
+  padding-top: 10%;
   text-align: center;
   background-color: rgb(0, 0, 0);
-  margin-left: 36%;
-  margin-top: 14%;
   color: rgb(255, 255, 255);
   font-size: larger;
   border-radius: 15px;
@@ -148,13 +156,13 @@ body {
 }
 
 #mensagemLoading {
+    grid-column: 2;
+  grid-row: 2;
    max-width: 350px;
-  min-height: 70px;
-  padding-top: 50px;
+  max-height: 70px;
+  padding-top: 10%;
   text-align: center;
   background-color: rgb(0, 0, 0);
-  margin-left: 36%;
-  margin-top: 14%;
   color: rgb(255, 255, 255);
   font-size: larger;
   border-radius: 15px;

@@ -3,7 +3,7 @@ import GaugeChart from 'react-gauge-chart'; // Importa a biblioteca do Gauge
 import consult from "../API/Api";
 
 const LIMITES = {
-  PRESSURE: {
+  ENGINECURRENT: {
     max: 100,
     zones: [0.6, 0.2, 0.2],
     colors: ['#5BE12C', '#F5CD19', '#EA4228'],
@@ -17,11 +17,11 @@ const LIMITES = {
     unit: ' bar',
     title: 'Pressão do Sump'
   },
-  SUMP: {
-    max: 5,
+  ENGINESPEED: {
+    max: 10000,
     zones: [0.8, 0.1, 0.1],
     colors: ['#5BE12C', '#F5CD19', '#EA4228'],
-    unit: ' bar',
+    unit: ' rpm',
     title: 'Velocidade do Motor'
   },
 };
@@ -102,7 +102,7 @@ function Comp2() {
         <MetricGauge
           dataKey="motorCurrent"
           data={data}
-          limits={LIMITES.PRESSURE}
+          limits={LIMITES.ENGINECURRENT}
         />
       </div>
 
@@ -115,10 +115,10 @@ function Comp2() {
       </div>
 
       <div id="gaugeVelocidadeMotor">
-        <MetricGauge id="sumpress"
-          dataKey="sumpPress"
+        <MetricGauge
+          dataKey="motorSpeed"
           data={data}
-          limits={LIMITES.SUMP}
+          limits={LIMITES.ENGINESPEED}
         />
       </div>
 
