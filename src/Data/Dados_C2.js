@@ -57,20 +57,16 @@ function Comp2() {
         //fetchedData recebe o json de dados
         let fetchedData = await consult();
 
-        //const item = fetchedData.find(reg => reg.id === 2);
+        const filtro = fetchedData[2]
 
-        /* Filtro nos compresores 
-        if (item) {
-          setCompressorData(item);
+        if (filtro) {
+          setCompressorData(filtro);
         } else {
           setCompressorData(null);
           console.log("Nenhum registro com id=2 encontrado!");
         }
 
-        */
-
-        // Retirar quando os compressores estiverem mandado todos os registros
-        setCompressorData(fetchedData)
+      
       } catch (error) {
         console.error("Erro ao carregar dados:", error);
       } finally {
@@ -116,81 +112,81 @@ function Comp2() {
       <div id="horasFuncionamento">
         <br />
         <p>
-          <div className="tituloData">{"Horas Funcionamento:"}</div>
+          <div className="tituloData">{"Vacuo de Admissão:"}</div>
         </p>
         <p>
-          <div className="valorDado">{"2"}</div>
+          <div className="valorDado">{compressorData.inletVacuum}</div>
         </p>
       </div>
 
       <div id="temperatura">
         <br />
         <p>
-          <div className="tituloData">{"Temperatura:"}</div>
+          <div className="tituloData">{"Pressão de entrada do filtro de arrefecimento:"}</div>
         </p>
         <br />
         <p>
-          <div className="valorDado">{compressorData.temperatura}</div>
+          <div className="valorDado">{compressorData.coolantFilterInPressure}</div>
         </p>
       </div>
 
       <div id="velocidadeMotor">
         <br />
         <p>
-          <div className="tituloData">{"Velocidade Motor:"}</div>
+          <div className="tituloData">{"Pressão de saida do filtro de arrefecimento:"}</div>
         </p>
         <p>
-          <div className="valorDado">{compressorData.velocidadeMotor}</div>
+          <div className="valorDado">{compressorData.coolantFilterOutPressure}</div>
         </p>
       </div>
 
       <div id="potenciaUnidade">
         <br />
         <p>
-          <div className="tituloData">{"Potência da Unidade:"}</div>
+          <div className="tituloData">{"Pressão de Descarga do Aftercooler:"}</div>
         </p>
         <p>
-          <div className="valorDado">{compressorData.potenciaUnidade}</div>
+          <div className="valorDado">{compressorData.afterCoolerDischargePress}</div>
         </p>
       </div>
 
       <div id="correnteMotor1">
         <br />
         <p>
-          <div className="tituloData">{"Corrente Motor:"}</div>
+          <div className="tituloData">{"Queda de pressão do separador"}</div>
         </p>
         <p>
-          <div className="valorDado">{compressorData.correnteMotor1}</div>
+          <div className="valorDado">{compressorData.separatorPressureDrop}</div>
         </p>
       </div>
 
       <div id="correnteMotor2">
         <br />
         <p>
-          <div className="tituloData">{"Corrente Motor:"}</div>
+          <div className="tituloData">{"Temperatura do Líquido de Arrefecimento Injetado"}</div>
         </p>
         <p>
-          <div className="valorDado">{2}</div>
+          <div className="valorDado">{compressorData.injectedCoolantTemp}</div>
         </p>
       </div>
 
       <div id="tensaoEntradaCA">
         <br />
         <p>
-          <div className="tituloData">{"Tensão de Entrada CA:"}</div>
+          <div className="tituloData">{"Temperatura da Unidade Parafuso:"}</div>
         </p>
         <p>
-          <div className="valorDado">{compressorData.tensaoEntradaCA}</div>
+          <div className="valorDado">{compressorData.airendTemp}</div>
         </p>
       </div>
 
       <div id="tensaoEntradaGBT">
         <br />
         <p>
-          <div className="tituloData">{"Tensão de Entrada GBT VW:"}</div>
+          <div className="tituloData">{"emperatura de Descarga do Aftercooler:"}</div>
         </p>
         <p>
-          <div className="valorDado">{compressorData.tensaoEntradaGBT}</div>
+          <div className="valorDado">{compressorData.afterCoolerDischargeTemp}</div>
         </p>
       </div>
 

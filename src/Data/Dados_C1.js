@@ -58,20 +58,14 @@ function Comp1() {
         //fetchedData recebe o json de dados
         let fetchedData = await consult();
 
-        //const item = fetchedData.find(reg => reg.id === 2);
+        const filttro = fetchedData[1]
 
-        /* Filtro nos compresores 
-        if (item) {
-          setCompressorData(item);
+        if (filttro) {
+          setCompressorData(filttro);
         } else {
           setCompressorData(null);
-          console.log("Nenhum registro com id=2 encontrado!");
+          console.log("Nenhum registro com id=1 encontrado!");
         }
-
-        */
-
-        // Retirar quando os compressores estiverem mandado todos os registros
-        setCompressorData(fetchedData)
       } catch (error) {
         console.error("Erro ao carregar dados:", error);
       } finally {
@@ -131,7 +125,7 @@ function Comp1() {
         </p>
         <br />
         <p>
-          <div className="valorDado">{compressorData.temperatura}</div>
+          <div className="valorDado">{compressorData.inletVacuum}</div>
         </p>
       </div>
 
