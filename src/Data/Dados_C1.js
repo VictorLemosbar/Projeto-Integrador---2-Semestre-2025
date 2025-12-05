@@ -24,6 +24,20 @@ const LIMITES = {
     unit: ' rpm',
     title: 'Velocidade do Motor'
   },
+  PACKAGEDISCHARGE: {
+    max: 10000,
+    zones: [0.8, 0.1, 0.1],
+    colors: ['#5BE12C', '#F5CD19', '#EA4228'],
+    unit: 'rpm',
+    title: 'Pressão de descarga C'
+  },
+  ENGINEVOLTAGE: {
+    max: 10000,
+    zones: [0.8, 0.1, 0.1],
+    colors: ['#5BE12C', '#F5CD19', '#EA4228'],
+    unit: 'rpm',
+    title: 'Voltagem Motor'
+  },
 };
 
 const MetricGauge = ({ dataKey, data, limits }) => {
@@ -122,6 +136,22 @@ function Comp2() {
         />
       </div>
 
+       <div id="gaugeVoltagemMotor">
+        <MetricGauge
+          dataKey="motorVoltage"
+          data={data}
+          limits={LIMITES.ENGINEVOLTAGE}
+        />
+      </div>
+
+       <div id="gaugePressãoDescargaConjunto">
+        <MetricGauge
+          dataKey="packageDischargePressure"
+          data={data}
+          limits={LIMITES.PACKAGEDISCHARGE}
+        />
+      </div>
+
 
       <div id="vacuoAdmissao">
         <br />
@@ -212,6 +242,73 @@ function Comp2() {
           <div className="valorDado">{compressorData.coolerOutTemp}</div>
         </p>
       </div>
+
+      <div id="horasRodando">
+        <br />
+        <p>
+          <div className="tituloData">{"Horas Rodando"}</div>
+        </p>
+        <p>
+          <div className="valorDado">{compressorData.runningHours}</div>
+        </p>
+      </div>
+
+      
+      <div id="voltagemDoInput">
+        <br />
+        <p>
+          <div className="tituloData">{"Voltagem do Input"}</div>
+        </p>
+        <p>
+          <div className="valorDado">{compressorData.inputVoltage}</div>
+        </p>
+      </div>
+
+      <div id="kWh">
+        <br />
+        <p>
+          <div className="tituloData">{"KWH"}</div>
+        </p>
+        <p>
+          <div className="valorDado">{compressorData.kWh}</div>
+        </p>
+      </div>
+
+        <div id="encomendaKw">
+        <br />
+        <p>
+          <div className="tituloData">{"Encomenda KW"}</div>
+        </p>
+        <p>
+          <div className="valorDado">{compressorData.packageKW}</div>
+        </p>
+      </div>
+
+       <div id="voltagemDcBus">
+        <br />
+        <p>
+          <div className="tituloData">{"Voltagen DC Bs"}</div>
+        </p>
+        <p>
+          <div className="valorDado">{compressorData.dcBusVoltage}</div>
+        </p>
+      </div>
+
+      <div id="porcentagemDeCapacidade">
+        <br />
+        <p>
+          <div className="tituloData">{"Porcentagem de Capacidade"}</div>
+        </p>
+        <p>
+          <div className="valorDado">{compressorData.percentCapacity}</div>
+        </p>
+      </div>
+
+
+
+
+
+
 
     
 

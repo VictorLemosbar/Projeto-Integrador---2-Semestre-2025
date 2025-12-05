@@ -1,10 +1,14 @@
-/* Grid interna onde os compressores ficam */
 #comp {
     display: grid;
     width: 100%;
-    gap: 5px;
-    grid-template-rows: repeat(auto-fit, minmax(1fr, 1fr, 1fr));
-    grid-template-columns: repeat(auto-fit, minmax(1fr, 1fr, 1fr));
+    gap: 15px;
+
+    grid-template-columns: repeat(5);
+
+    justify-content: center;   
+    align-content: start;
+
+    padding: 10px 0;
     animation: fadeInAnim 0.4s ease forwards;
     text-align: center;
 }
@@ -12,57 +16,81 @@
 /* Formatação dos dados */
 .tituloData {
     color: white;
-    border-radius: 15px;
-    border-style: none;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     font-weight: 600;
     letter-spacing: 0.5px;
-    min-height: 15px;
-    min-width: 1px;
 }
 
 .valorDado {
     color: rgb(0, 255, 0);
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: bold;
 }
 
-/* Posições dos dados com animação de fade */
-#vacuoAdmissao { grid-column: 2; grid-row: 1; margin-top: 5px; animation: fadeInAnim 0.4s ease forwards; background-color: rgb(0, 0, 0); border: 5px; border-radius: 15px; min-width: 360px; max-width: 380px;justify-self: center; max-height: 120px }
-#pressaoEntrada { grid-column: 1; grid-row: 1; margin-top: 5px; animation: fadeInAnim 0.4s ease forwards; background-color: rgb(0, 0, 0); border: 5px; border-radius: 15px; min-width: 360px;max-width: 380px;justify-self: center;max-height: 120px}
-#pressaoSaidaFiltro { grid-column: 3; grid-row: 2; animation: fadeInAnim 0.4s ease forwards; background-color: rgb(0, 0, 0); border: 5px; border-radius: 15px; min-width: 360px;max-width: 380px;justify-self: center;}
-#pressaoDescargaAfterCooler { grid-column: 3; grid-row: 1; margin-top: 5px; animation: fadeInAnim 0.4s ease forwards; background-color: rgb(0, 0, 0); border: 5px; border-radius: 15px; min-width: 360px;max-width: 380px;justify-self: center;}
-#quedaPressao { grid-column: 1; grid-row: 2; animation: fadeInAnim 0.4s ease forwards; background-color: rgb(0, 0, 0); border: 5px; border-radius: 15px;  min-width: 360px;max-width: 380px;justify-self: center;}
-#temperaturaLiquidoArrefecimento { grid-column: 2; grid-row: 2; animation: fadeInAnim 0.4s ease forwards; background-color: rgb(0, 0, 0); border: 5px; border-radius: 15px;   min-width: 360px;max-width: 380px;justify-self: center;}
-#temperaturaUnidadeParafuso { grid-column: 3; grid-row: 3; animation: fadeInAnim 0.4s ease forwards; background-color: rgb(0, 0, 0); border: 5px; border-radius: 15px; min-width: 360px;max-width: 380px;justify-self: center;}
-#temperaturaDescargaAftercooler { grid-column: 1; grid-row: 3; animation: fadeInAnim 0.4s ease forwards; background-color: rgb(0, 0, 0); border: 5px; border-radius: 15px;  min-width: 360px;max-width: 380px;justify-self: center;}
-#tempoDeResfriamento { grid-column: 2; grid-row: 3; animation: fadeInAnim 0.4s ease forwards; background-color: rgb(0, 0, 0); border: 5px; border-radius: 15px;  min-width: 360px;max-width: 380px;justify-self: center;}
+/*Cardds para edição de maneira reduzida */
 
-/* Gauges */
-
-
-#gaugeMotorCurrent{
-    min-width: 150px;
-    grid-column: 3;
-    grid-row: 4;
+#vacuoAdmissao,
+#pressaoEntrada,
+#pressaoSaidaFiltro,
+#pressaoDescargaAfterCooler,
+#quedaPressao,
+#temperaturaLiquidoArrefecimento,
+#temperaturaUnidadeParafuso,
+#temperaturaDescargaAftercooler,
+#tempoDeResfriamento,
+#horasRodando,
+#voltagemDoInput,
+#kWh,
+#encomendaKw,
+#voltagemDcBus,
+#porcentagemDeCapacidade {
+    background-color: rgb(0, 0, 0);
+    border-radius: 12px;
+    min-width: 200px;
+    max-width: 200px;
+    min-height: 90px;
+    max-height: 110px;
+    justify-self: center;
+    padding: 5px;
     animation: fadeInAnim 0.4s ease forwards;
-    justify-self: center
 }
 
-#gaugeSumpress {
-    min-width: 150px;
-    grid-column: 1;
-    grid-row: 4;
+/* Posições na grid*/
+
+#vacuoAdmissao { grid-column: 2; grid-row: 1; }
+#pressaoEntrada { grid-column: 1; grid-row: 1; }
+#pressaoSaidaFiltro { grid-column: 3; grid-row: 2; }
+#pressaoDescargaAfterCooler { grid-column: 3; grid-row: 1; }
+#quedaPressao { grid-column: 1; grid-row: 2; }
+#temperaturaLiquidoArrefecimento { grid-column: 2; grid-row: 2; }
+#temperaturaUnidadeParafuso { grid-column: 4; grid-row: 2; }
+#temperaturaDescargaAftercooler { grid-column: 1; grid-row: 3; }
+#tempoDeResfriamento { grid-column: 2; grid-row: 3; }
+#horasRodando { grid-column: 4; grid-row: 1; }
+#voltagemDoInput {grid-column: 4; grid-row: 3;}
+#kWh {grid-column: 3; grid-row: 3; }
+#encomendaKw {grid-column: 5; grid-row: 3;}
+#voltagemDcBus {grid-column: 5; grid-row: 1;}
+#porcentagemDeCapacidade {grid-column: 5; grid-row: 2;}
+
+#gaugeMotorCurrent,
+#gaugeSumpress,
+#gaugeVelocidadeMotor
+#gaugeVoltagemMotor,
+#gaugePressãoDescargaConjunto {
+    min-width: 130px;
+    max-width: 150px;
+   justify-self: center;
+    align-self: center;
     animation: fadeInAnim 0.4s ease forwards;
-    min-width: 1fr;
-    justify-self: center
 }
 
-#gaugeVelocidadeMotor {
-  min-width: 150px;
-    grid-column: 2;
-    grid-row: 4;
-    animation: fadeInAnim 0.4s ease forwards;
-    min-width: 1fr;
-    justify-self: center
+#gaugeVoltagemMotor {
 }
+
+
+#gaugeMotorCurrent { grid-column: 3; grid-row: 4; }
+#gaugeSumpress { grid-column: 1; grid-row: 4; }
+#gaugeVelocidadeMotor { grid-column: 2; grid-row: 4; }
+#gaugePressãoDescargaConjunto {grid-column: 4; grid-row: 4;}
+#gaugeVoltagemMotor {grid-column: 5; grid-row: 4;}
